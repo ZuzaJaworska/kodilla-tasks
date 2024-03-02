@@ -27,20 +27,4 @@ public class TrelloController {
     public ResponseEntity<CreatedTrelloCard> createdTrelloCard(@RequestBody TrelloCardDto trelloCardDto) {
         return ResponseEntity.ok(trelloClient.createNewCard(trelloCardDto));
     }
-
-
-
-    // -----------------------------------------------------------------------------------------------------
-    @GetMapping("kodillaboards")
-    public void getTrelloKodillaBoards() {
-
-        List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
-
-        trelloBoards.stream()
-                .filter(board -> board.getId() != null && board.getName() != null)
-                .filter(board -> board.getName().toLowerCase().contains("kodilla"))
-                .forEach(board -> {
-                    System.out.println("board ID:" + board.getId() + " - board name: " + board.getName());
-                });
-    }
 }
