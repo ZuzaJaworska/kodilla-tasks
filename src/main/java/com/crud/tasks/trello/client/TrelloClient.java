@@ -51,7 +51,7 @@ public class TrelloClient {
                     .filter(p -> Objects.nonNull(p.getId()) && Objects.nonNull(p.getName()))
                     .collect(Collectors.toList());
         } catch (RestClientException e) {
-            LOGGER.error("RestClientException" + e); //  w kursie LOGGER.error(e.getMessage(), e);
+            LOGGER.error("RestClientException {e}", e); //  w kursie LOGGER.error(e.getMessage(), e);
             return Collections.emptyList();
         }
     }

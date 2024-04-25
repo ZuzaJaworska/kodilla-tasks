@@ -27,13 +27,14 @@ public class SimpleEmailService {
     }
 
     public void send(final Mail mail) {
-        log.info("Starting email preparation...");
+        log.info("Starting email preparation...");;
+
         try {
             SimpleMailMessage mailMessage = createMailMessage(mail);
             javaMailSender.send(mailMessage);
             log.info("Email has been sent.");
         } catch (MailException e) {
-            log.error("Failed to process email sending: " + e); // w kursie log.error("Failed to process email sending: " + e.getMessage(), e);
+            log.error("Failed to process email sending: {e}", e); // w kursie log.error("Failed to process email sending: " + e.getMessage(), e);
         }
     }
 }
