@@ -1,8 +1,9 @@
 package com.crud.tasks.trello.client;
 
-import com.crud.tasks.domain.*;
+import com.crud.tasks.domain.CreatedTrelloCardDto;
+import com.crud.tasks.domain.TrelloBoardDto;
+import com.crud.tasks.domain.TrelloCardDto;
 import com.crud.tasks.trello.config.TrelloConfig;
-
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,7 +51,7 @@ public class TrelloClient {
                     .filter(p -> Objects.nonNull(p.getId()) && Objects.nonNull(p.getName()))
                     .collect(Collectors.toList());
         } catch (RestClientException e) {
-            LOGGER.error(e.getMessage(), e);
+            LOGGER.error("RestClientException" + e); //  w kursie LOGGER.error(e.getMessage(), e);
             return Collections.emptyList();
         }
     }

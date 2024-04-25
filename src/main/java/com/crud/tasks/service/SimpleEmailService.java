@@ -1,7 +1,6 @@
 package com.crud.tasks.service;
 
 import com.crud.tasks.domain.Mail;
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.mail.MailException;
@@ -34,7 +33,7 @@ public class SimpleEmailService {
             javaMailSender.send(mailMessage);
             log.info("Email has been sent.");
         } catch (MailException e) {
-            log.error("Failed to process email sending: " + e.getMessage(), e);
+            log.error("Failed to process email sending: " + e); // w kursie log.error("Failed to process email sending: " + e.getMessage(), e);
         }
     }
 }

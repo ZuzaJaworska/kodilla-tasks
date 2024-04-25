@@ -14,12 +14,12 @@ public class Mail {
     private final String message;
     private final String toCc;
 
-//    public void mailBuilder(final String mailTo, final String subject, final String message, final String toCc) {
-//        Mail.builder()
-//                .mailTo(mailTo)
-//                .subject(subject)
-//                .message(message)
-//                .toCc(toCc)
-//                .build();
-//    }
+    public void mailBuilder(final String mailTo, final String subject, final String message, final String toCc) {
+        Mail.builder()
+                .mailTo(mailTo)
+                .subject(subject)
+                .message(message)
+                .toCc(toCc)
+                .build();
+    }
 }
