@@ -39,7 +39,7 @@ public class TaskController {
     }
 
     @PutMapping
-    public ResponseEntity<TaskDto> updateTask(@RequestBody TaskDto taskDto) {
+    public ResponseEntity<TaskDto> updateTask(@RequestBody TaskDto taskDto) throws TaskNotFoundException {
         Task task = taskMapper.mapToTask(taskDto);
         Task savedTask = service.saveTask(task);
         return ResponseEntity.ok(taskMapper.mapToTaskDto(savedTask));
